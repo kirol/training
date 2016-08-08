@@ -1,0 +1,7 @@
+﻿CVS only tracks modification on a file-by-file basis, while SVN tracks a whole commit as a new revision, which means that it is easier to follow the history of your project. Add the fact that all modern source control software use the concept of revision so it is far easier to migrate from SVN than it is from CVS.
+
+There is also the atomic commit problem. While I only encountered it once, it is possible that 2 people committing together in CVS can conflict each other, losing some data and putting your client in an inconsistent state. When detected early, these problems are not major because your data is still out there somewhere, but it can be a pain in a stressful environment.
+
+And finally, not many tools are developed around CVS anymore. 
+
+EDIT 2015: Seriously, this answer is 7 years old now. Forget SVN, go use Git like everyone else!

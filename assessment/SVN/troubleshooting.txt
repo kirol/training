@@ -1,0 +1,3 @@
+https://www.visualsvn.com/server/download/
+You must install VisualSVN Server not VisualSVN
+VisualSVN is just a plugin for visual studio. You need VisualSVN Server (This one includes manager)

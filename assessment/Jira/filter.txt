@@ -1,0 +1,1 @@
+text ~ cnf-714 OR project in (HDGHMC, CLIENT) AND issuetype in (Bug, "Pre-Integration Bug") AND cf[11690] = osdenhance-ultra

@@ -1,0 +1,10 @@
+tester vs developer
+developer marks a bug as can not be reproduced on current build. Even though it is reproduced on previous build
+developer does not fix your bug
+
+maintenance plan when you are free
+invalid bug => maintenance plan for bug, test case, requirements
+
+49% sure it is a bug
+failed test case is marked as passed
+found a problem but there is already an issue for it

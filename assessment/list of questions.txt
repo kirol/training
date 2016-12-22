@@ -1,10 +1,27 @@
 tester vs developer
+Attack the issue, not the person – never introduce a personal motif into any argument. “You always do this!” “It’s just like you to say that!” “He is so <unflattering adjective>!” Always keep things on a professional and courteous level.
+Myatt advises, “Don’t play favourites, don’t get involved in drama, and certainly don’t tolerate manipulative, self-serving behaviour.”
+Kohl adds, “I don’t tolerate personal attacks, and I don’t tolerate gossip.”
+
+
 developer marks a bug as can not be reproduced on current build. Even though it is reproduced on previous build
+
+
 developer does not fix your bug
+more affected cases, say it important
+sometimes emailing is better than commenting on bug
+Hi and Thanks as much as possible
 
 maintenance plan when you are free
 invalid bug => maintenance plan for bug, test case, requirements
 
 49% sure it is a bug
+ please report the bug. I'd much rather have a ticket in the tracking system than a vague memory of a hallway conversation, or an interruption of what I'm working on
+
+
 failed test case is marked as passed
+
 found a problem but there is already an issue for it
+updating affected version/build, logs, screenshots
+updating affected environment/scenarios in details
+do not forget to make a link to other dependence bugs or duplication bugs

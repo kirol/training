@@ -13,13 +13,17 @@ sometimes emailing is better than commenting on bug
 Hi and Thanks as much as possible
 
 maintenance plan when you are free
+
 invalid bug => maintenance plan for bug, test case, requirements
+don't close the invalid resolved bug quickly
+if the invalid bug is found in a test case. Make a test improvement request to test lead to fix this test case
 
 49% sure it is a bug
  please report the bug. I'd much rather have a ticket in the tracking system than a vague memory of a hallway conversation, or an interruption of what I'm working on
 
 
 failed test case is marked as passed
+test case may become redundant due to behavior change
 
 found a problem but there is already an issue for it
 updating affected version/build, logs, screenshots

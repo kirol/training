@@ -1,0 +1,19 @@
+ls ~
+List the contents of your home directory by adding a tilde after the ls command.
+
+ls /
+List the contents of your root directory.
+
+ls ../
+List the contents of the parent directory.
+
+ls */
+List the contents of all sub directories.
+
+ls -d */
+Only list the directories in the current directory.
+
+
+Tạo file1, file2, file3, file4, file5. Xóa các file1,file2, file3, file4, file5. Sử dụng cách hiệu quả nhất với {}. (vd touch file{1,2}; rm -f file{1,2}.
+touch file{1,2,3,4,5}
+rm -f file{1,2,3,4,5}

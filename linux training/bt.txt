@@ -17,3 +17,39 @@ Only list the directories in the current directory.
 Tạo file1, file2, file3, file4, file5. Xóa các file1,file2, file3, file4, file5. Sử dụng cách hiệu quả nhất với {}. (vd touch file{1,2}; rm -f file{1,2}.
 touch file{1,2,3,4,5}
 rm -f file{1,2,3,4,5}
+
+
+
+ls
+backup  text1       text2       text3  text5  xaa  yaa
+sedtab  text[*?!1]  text[2*?!]  text4  text6  xab  yab
+
+ls text[2-4]
+text2  text3  text4
+
+ls text[!2-4]
+text1  text5  text6
+This case only displays text1 text5 text6 not text[*?!1] , text[2*?!] because [ ] only represents one character
+
+
+
+Tìm các file trong hệ thống bắt đầu là 1 con số, tiếp đó là 1 chữ cái. In kết quả vào trong 1 file. 
+
+find and list -R returning different number of files
+
+find lists all the files in the directory tree. ls -R actually lists fewer files: it omits dot files — you need ls -AR to include them.
+
+If you aren't finding the files you need, there are a few possibilities:
+
+    You missed them in the output. Use a search command (e.g. find … | less and use the / key in less). Keep in mind that the output of find is not sorted.
+    The files aren't actually called what you think they're called. Do a case-insensitive search if you aren't sure about the case.
+    The files you're looking for are actually symbolic links. Use find -xtype f instead of find -type f to categorize symbolic links as the file they point to.
+    The files are under a symbolic link to a directory. Use find -L to traverse symbolic links, but be careful: this could search a very large number of files if you have a symbolic link to a directory that's at the top of a large hierarchy.
+
+In no case would ls -R find files that find doesn't.
+
+You can't easily compare the number of lines in output of ls -R and find:
+
+    ls -R omits dot files, find doesn't.
+    ls -R has a total of three extra lines for each subdirectory (except for the root), compared with find -type f: the directory entry, the blank line that separates the listing of that directory from the previous line, and the header line with the directory name followed by a colon.
+

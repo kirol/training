@@ -52,4 +52,28 @@ You can't easily compare the number of lines in output of ls -R and find:
 
     ls -R omits dot files, find doesn't.
     ls -R has a total of three extra lines for each subdirectory (except for the root), compared with find -type f: the directory entry, the blank line that separates the listing of that directory from the previous line, and the header line with the directory name followed by a colon.
+	
+	
+	
+ Tạo 1 file có chứa các cột chứa thông tin sinh viên gồm : Tên, Tuổi, Ngày sinh, lớp, giới tính. Sắp xếp cáp sinh viên theo lớp, theo tên, theo ngày sinh. Tìm số sinh viên nam, số sinh viên nữ. (Hướng dẫn: dùng kết hợp các lệnh cut, sort, >>, ... tất cả các lệnh đã học).
 
+sort -k 5 sinhvien   #--//-----------
+tìm số sinh vien nam, nu
+cut -f 5 sinhvien | sort | uniq -c
+
+
+Sử dụng lệh vim. 
+   + Tạo file mới.
+   + Mở file cũ.
+   + Di chuyển trong vim
+   + Set Đánh dấu thứ tự các hàng
+   + Tìm 1 từ trong file (/ , n, N) 
+   + Copy một dòng
+   + Đổi 1 từ thành từ khác trong toàn bộ file 
+   + Sử dụng undo
+   + Thực hiện lệnh shell trong vim
+   + Chia cửa sổ làm đôi theo chiều dọc, ngang.
+
+   
+   
+Trường hợp ssh không được vào máy thì bạn cần kiểm tra những gì?

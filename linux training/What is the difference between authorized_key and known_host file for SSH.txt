@@ -1,0 +1,57 @@
+ 
+
+    ~/.ssh/authorized_keys: Holds a list of authorized public keys for servers. When the client connects to a server, the server authenticates the client by checking its signed public key stored within this file. This file is in the server. authorized_keys is used for public key authentication 
+
+    ~/.ssh/known_hosts ((there's also a system-wide file /etc/ssh/known_hosts): Contains host keys of SSH servers accessed by the user. This file is very important for ensuring that the SSH client is connecting the correct SSH server. This file is in the client. known_hosts is used for host authentication
+
+	 known_hosts file is maintained on client whereas authorized_key file is maintained on the server
+	
+	If you use below lines:
+	Host 192.168.*.*
+   StrictHostKeyChecking=no
+   UserKnownHostsFile=/dev/null
+   No hosts will be added to ~/.ssh/known_hosts
+ 
+ 
+ 
+ 
+ For example:
+ From client, ssh to server. Server's ip address (192.168.100.102) is added to client's /root/.ssh/known_hosts when selecting yes for the question (Are you sure you want to continue connecting (yes/no)?)
+ 
+The authenticity of host '192.168.100.102 (192.168.100.102)' can't be established.
+ECDSA key fingerprint is 4f:eb:35:02:85:a5:a9:ba:6b:d6:d2:93:13:e3:9e:2a.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.100.102' (ECDSA) to the list of known hosts.
+
+[root@client ~]# find / -iname known*
+/root/.ssh/known_hosts
+/usr/share/doc/setools-libs-3.3.7/KNOWN-BUGS
+/usr/share/doc/nfs-utils-1.3.0/KNOWNBUGS
+/usr/share/doc/dmraid-1.0.0.rc16/KNOWN_BUGS
+/usr/share/doc/cjkuni-uming-fonts-0.2.20080216.1/KNOWN_ISSUES
+/usr/share/augeas/lenses/dist/known_hosts.aug
+[root@client ~]# cat /root/.ssh/known_hosts
+192.168.100.102 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPfualDbaAgx3yRKNkYJ8+gxa2gP8kvAZwduMTLY8mzrDvKUCVwOAqiXhPvI0PkqC93/fQofgdhzmUa7YRWXj14=
+
+ 
+The known_hosts file lets the client authenticate the server, to check that it isn't connecting to an impersonator. The authorized_keys file lets the server authenticate the user.
+Server authentication
+
+One of the first things that happens when the SSH connection is being established is that the server sends its public key to the client, and proves (thanks to public-key cryptography) to the client that it knows the associated private key. This authenticates the server: if this part of the protocol is successful, the client knows that the server is who it claims it is.
+
+The client may check that the server is a known one, and not some rogue server trying to pass off as the right one. SSH provides only a simple mechanism to verify the server's legitimacy: it remembers servers you've already connected to, in the ~/.ssh/known_hosts file on the client machine (there's also a system-wide file /etc/ssh/known_hosts). The first time you connect to a server, you need to check by some other means that the public key presented by the server is really the public key of the server you wanted to connect to. If you have the public key of the server you're about to connect to, you can add it to ~/.ssh/known_hosts on the client manually.
+
+By the way, known_hosts can contain any type of public key supported by the SSH implementation, not just DSA (also RSA and ECDSA).
+
+Authenticating the server has to be done before you send any confidential data to it. In particular, if the user authentication involves a password, the password must not be sent to an unauthenticated server.
+User authentication
+
+The server only lets a remote user log in if that user can prove that they have the right to access that account. Depending on the server's configuration and the user's choice, the user may present one of several forms of credentials (the list below is not exhaustive).
+
+    The user may present the password for the account that he is trying to log into; the server then verifies that the password is correct.
+    The user may present a public key and prove that he possesses the private key associated with that public key. This is exactly the same method that is used to authenticate the server, but now the user is trying to prove its identity and the server is verifying it. The login attempt is accepted if the user proves that he knows the private key and the public key is in the account's authorization list (~/.ssh/authorized_keys on the server).
+    Another type of method involves delegating part of the work of authenticating the user to the client machine. This happens in controlled environments such as enterprises, when many machines share the same accounts. The server authenticates the client machine by the same mechanism that is used the other way round, then relies on the client to authenticate the user.
+
+	
+	
+	

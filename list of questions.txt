@@ -1,0 +1,50 @@
+1. What to do when you forget the command's name? -> Use man -k command_desc to search for the command
+2. When to use absolute path? When to use relative path? 
+3. Can't remember list of options? Should I open the slide to show list of options or not?
+4. tail -f amd tail -F
+5. Ctrl is used to send signal (e.g: Ctrl + C works differently when using in vi and bash)(Ctrl + Z stops process)
+6. Parameter, argument (a method has parameters and takes arguments. )
+
+8. Why needing to use ./
+$ type -a pwd
+pwd is a shell builtin
+pwd is /bin/pwd
+9. Alias can be used to include different python version
+10. ampersand: background, forground
+11. List of supported special characters in shell
+12. Introduce to quote
+[root@localhost ~]# echo "$abc"
+123
+[root@localhost ~]# echo '$abc'
+$abc
+Single quotes won't interpolate anything, but double quotes will (for example variables, backticks, certain \ escapes, etc...)
+[root@localhost amd64-linux]# echo '\\abc'
+\\abc
+[root@localhost amd64-linux]# echo "\\abc"
+\abc
+[root@localhost amd64-linux]#
+
+13. Set example
+$ echo hi > test
+$ echo hi > test
+$ set -o noclobber
+$ echo hi > test
+-bash: test: cannot overwrite existing file
+env -u FOOBAR myscrip
+To test a shell script called myscript, the environment variable FOOBAR must be removed temporarily
+
+When you create a shell variable, you will often want to export it to the environment so it will be available to other processes (subshells of current shell) that you start from this shell. Variables that you export are not available to a parent shell of the current shell. You use the export command to export a variable name. As a shortcut in bash, you can assign a value and export a variable in one step.
+export x=5   
+
+14. 
+
+>/dev/null redirects the command standard output to the null device, which is a special device which discards the information written to it
+
+2 >&1 redirects the standard error stream to the standard output stream (stderr = 2, stdout = 1).
+
+In practice it prevents any output from the command (both stdout and stderr) from being displayed. It's used when you don't care about the command output.
+
+15. 
+tr -d '\r' < DOS-file > UNIX-file
+To fix a Linux file which can't not be run on Linux, we use above command.
+The reason, Linux file does not work in Linux anymore is we download it to Windows then edit or sth like that. Or you can use dos2unix command

@@ -1,16 +1,15 @@
+0. dd command vs cp command
 1. What to do when you forget the command's name? -> Use man -k command_desc to search for the command
 2. When to use absolute path? When to use relative path? 
 3. Can't remember list of options? Should I open the slide to show list of options or not?
 4. tail -f amd tail -F
 5. Ctrl is used to send signal (e.g: Ctrl + C works differently when using in vi and bash)(Ctrl + Z stops process)
 6. Parameter, argument (a method has parameters and takes arguments. )
-
-8. Why needing to use ./
-$ type -a pwd
+7. $ type -a pwd
 pwd is a shell builtin
 pwd is /bin/pwd
 9. Alias can be used to include different python version
-10. ampersand: background, forground
+10. ampersand: background, foreground
 11. List of supported special characters in shell
 12. Introduce to quote
 [root@localhost ~]# echo "$abc"

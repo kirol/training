@@ -77,3 +77,9 @@ Sử dụng lệh vim.
    
    
 Trường hợp ssh không được vào máy thì bạn cần kiểm tra những gì?
+
+
+
+Chapter 3:
+
+

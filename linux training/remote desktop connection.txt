@@ -1,0 +1,7 @@
+port 3389
+ip 172.19.7.154
+You have to switch network cable to Thong's router
+Request IS to open port 3389 to remote desktop, ip 172.19.7.154
+
+user: Cybersoft\minhql.rt
+pass
